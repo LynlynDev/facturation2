@@ -1,3 +1,6 @@
+/* stylelint-disable alpha-value-notation */
+/* stylelint-disable shorthand-property-no-redundant-values */
+/* stylelint-disable color-function-notation */
 /* stylelint-disable comment-empty-line-before */
 /* stylelint-disable function-no-unknown */
 /* stylelint-disable selector-class-pattern */
@@ -200,6 +203,7 @@ p{
         /* align: center; */
         margin: 10px;
         gap: 0.5rem;
+        cursor: pointer;
     }
 
     .mark__as-btn{
@@ -207,11 +211,183 @@ p{
         padding: 10px 5px !important;
         background: var(--primary-color);
         color: #fff;
+        cursor: pointer;
     }
 
     .delete__btn{
+        /* background: var(--third-color); */
+        background: rgb(221, 59, 9);
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .edit__btn{ /* pour le bouton delete aussi dans add new */
+
+        /* stylelint-disable-next-line declaration-empty-line-before */
+        /* background: rgb(38, 38, 87); */
+        background: rgb(36, 202, 44);
+        margin-top: 5px;
+        margin-left: 20px; 
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .invoice__details{
+        background: var(--secondary-color);  /* pour la grande bande */
+        padding: 20px;
+        border-radius: 10px 10px 0 0; /* les deuc derniers séros sont pour la gauche et la droite respectivement */
+    }
+
+    .details__box{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1.9rem;
+    }
+
+    .invoice__created-date{
+        margin-bottom: 1.9rem;
+    }
+
+    .invoice__created-date p, .invoice__payment{
+        margin-bottom: 5px;
+    }
+
+    .invoice__client-address p{
+        margin-bottom: 5px;
+    }
+
+    .invoice__client-address h4{
+        margin-bottom: 8px;
+    }
+
+    .invoice__item-box{         /* la bande au dessus du noir */
+        background: #252945;
+        padding: 20px;
+        border-radius: 7px 7px 0 0;
+    }
+
+    .list{
+        list-style: none;
+    }
+
+    .list__item{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+
+    .list__item-box{
+        width: 25%;
+        text-align: left;
+    }
+
+    .item__name-box{
+        width: 40%;
+    }
+
+    .grand__total{
+        background: #0c0e16;
+        padding: 20px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        border-radius: 0 0 7px 7px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+
+    /* ====== invoice details style end ====== */
+    /* ====== add new page style start ======== */
+    .new__invoice{
+        width: 60%;
+        margin: auto;
+    }
+
+    .new__invoice-header{
+        margin-bottom: 1.9rem;
         
     }
 
-    /* ====== invoice details style end ====== */
+    .form__group input{
+        padding: 12px 20px;
+        width: 100%;
+        border-radius: 5px;
+        background: var(--secondary-color);
+        color: #fff;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+    .form__group{
+        margin-bottom: 1.9em;
+    }
+
+    .form__group p{
+        margin-bottom: 10px;
+    }
+
+    .inline__form-group{
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        justify-content: space-between;
+    }
+
+    .inline__group{
+        width: 28%;
+    }
+
+    .new_invoice-body{
+    padding-bottom: 40px;
+    }
+
+    .bill__title{
+        margin-bottom: 20px;
+    }
+
+    .bill__to{
+        margin-top: 50px;
+    }
+
+    .invoice__items{
+        margin-top: 70px;
+    }
+
+    .invoice__items h3{
+        margin-bottom: 30px;
+    }
+
+    .add__item-btn{
+        width: 100%;
+        background: rgba(21, 1, 58, 0.726);
+        padding: 12px 25px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        color: aliceblue;
+        cursor: pointer;
+    }
+
+    .draft__btn{
+        background: #1f2c3f;
+        color: #fff;
+        margin-right: 30px;
+        width: 150px !important;
+        cursor: pointer;
+    }
+
+    .new__invoice-btns{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 100px;
+    }
+
+
+
+
+
+    /* ======= add new page style end ========= */
 

@@ -8,7 +8,7 @@ const Sidebar = () => {
         <div className='sidebar'>
             <div className='sidebar_container'>
                 <div className='sidebar_header'>
-                    <h2>Braselin</h2>
+                    <h2>Dorian</h2>
                 </div>
             </div>
             <div className='sidebar_bottom'>
