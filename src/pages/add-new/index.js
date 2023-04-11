@@ -9,13 +9,17 @@ const AddNew = () => {
 
     //add products to the items list
     const addItems = () =>{
-        setItems([...items, {name:'', quantity:0, price:0, total:0}])
+        setItems([...items, {name:'', quantity:0, price:0, total:0}]);
         console.log(items);    
     };
 
     //handler change
     const handlerChange =(event, i)=>{
         const {name, value} = event.target
+        const list = [...items]
+        list[i][name] = value
+
+        setItems(list);
     }
 
     return (
@@ -110,12 +114,9 @@ const AddNew = () => {
                     {/** =========== invoice Products items ======== */}
                     <div className="invoice__items">
                         <h3>Item List</h3>
-                        {/* {
-                            items?.map(item,i)=>(
-                                
-                            )
-                        } */}
-                        <div className="item">
+                        {
+                            items?.map((item,i) => (
+                        <div className="item" key={i}>
                             <div className="form__group inline__form-group">
                                 <div>
                                     <p>Item Name</p>
@@ -125,24 +126,29 @@ const AddNew = () => {
 
                                 <div>
                                     <p>Qty</p>
-                                    <input type="number" name="quantity" placeholder="required" />
+                                    <input type="number" name="quantity" onChange={e=>
+                                    handlerChange(e,i)} placeholder="required" />
                                 </div>
 
                                 <div>
                                     <p>Price</p>
-                                    <input type="number" name="price" placeholder="required" />
+                                    <input type="number" name="price" onChange={e=>
+                                    handlerChange(e,i)} placeholder="required" />
                                 </div>
                                 <di>
                                     <p>Total</p>
-                                    <h4>$550</h4>
+                                    <h4>{item.Total}</h4>
                                 </di>
 
                                 <button className="edit__btn">Delete</button>
                             </div>
                         </div>
+                         ))
+                        }
+                       
                     </div>
 
-                        <button className="add__item-btn" onClick={addItem} > Add New Item</button>
+                        <button className="add__item-btn" onClick={addItems} > Add New Item</button>
 
                         <div className="new__invoice-btns">
                             <button className="edit__btn" onClick={() => router.push("/")}>Discard</button>
