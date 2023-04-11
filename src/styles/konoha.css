@@ -202,5 +202,16 @@ p{
         gap: 0.5rem;
     }
 
+    .mark__as-btn{
+        width: 130px;
+        padding: 10px 5px !important;
+        background: var(--primary-color);
+        color: #fff;
+    }
+
+    .delete__btn{
+        
+    }
+
     /* ====== invoice details style end ====== */
 
