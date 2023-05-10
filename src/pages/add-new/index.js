@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { useRouter } from "next/router";
 import { constants } from "buffer";
-import * as Yup from "yup"
+// import * as Yup from "yup"
 const AddNew = () => {
     //fait un npm i yup
     const verification  = Yup.object({
