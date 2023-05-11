@@ -4,38 +4,58 @@ import { constants } from "buffer";
 // import * as Yup from "yup"
 const AddNew = () => {
     //fait un npm i yup
-    const verification  = Yup.object({
-        //exemple 
-        firstName : Yup.String()
-        .required('entrez le nom svp!')
-        .min(5,"le nombre min de lettre est de 5")
-        .max(23,'le nombre max de lettre est de 23'),
-    })
-    const router = useRouter()
+    // const verification  = Yup.object({
+    //     //exemple 
+    //     firstName : Yup.String()
+    //     .required('entrez le nom svp!')
+    //     .min(5,"le nombre min de lettre est de 5")
+    //     .max(23,'le nombre max de lettre est de 23'),
+    // })
+    const router = useRouter();
     const [items, setItems] = useState([])
 
+    const senderStreet = useRef('')
+    const senderCity = useRef('')
+    const senderPostalCode = useRef('')
+    const senderCountry = useRef('')
+    const clientName = useRef('')
+    const clientEmail = useRef('')
+    const clientStreet = useRef('')
+    const clientCity = useRef('')
+    const clientPostalCode = useRef('')
+    const clientCountry = useRef('')
+    const description = useRef('')
+    const createdAt = useRef('')
+    const paymentTerms = useRef('')
     //add products to the items list
     const addItems = () => {
         setItems([...items,
              { name: '', 
              quantity: 0, 
              price: 0, 
-             total: (quantity*price) }]);
+             //total: (quantity*price)
+             total: 0}]);
         console.log(items);
     };
 
     //handler change
     const handlerChange = (event, i) => {
         const { name, value } = event.target
-        const list = [...items]
-        list[i][name] = value
-
+        const list = [...items];
+        list[i][name] = value;
+        list[i]['total'] = list[i]['quantity']* list[i]['price']
         setItems(list);
     }
-    const saveHandler = async () => {
-        const res = save()
-
+    
+    //delete product items
+    const deleteItems = (i) =>{
+        const inputData = [...items]
+        inputData.splice(i, 1);
+        setItems(inputData);
     }
+
+    //total amount  of all products items
+    const totalAmount = items.reduce((acc,curr)=>(acc+ curr.total),0)
 
     return (
         <div className="main__container">
@@ -50,23 +70,23 @@ const AddNew = () => {
                         <p className="bill__title">Bill from</p>
                         <div className="form__group">
                             <p>Street Address</p>
-                            <input type="text" />
+                            <input type="text" ref={senderStreet}/>
                         </div>
 
                         <div className="form__group inline__form-group">
                             <div>
                                 <p>City</p>
-                                <input type="text" />
+                                <input type="text" ref={senderCity}/>
                             </div>
 
                             <div>
                                 <p>Postal Code</p>
-                                <input type="text" />
+                                <input type="text" ref={senderPostalCode}/>
                             </div>
 
                             <div>
                                 <p>Country</p>
-                                <input type="text" />
+                                <input type="text" ref={senderCountry}/>
                             </div>
                         </div>
                     </div>
@@ -80,7 +100,7 @@ const AddNew = () => {
                             <input 
                             type="text"
                             placeholder=''
-                            name=""
+                            name="" ref={clientName}
                             onChange={(e) =>handlerChange(e.target.value)} 
                             />
                         </div>
@@ -90,7 +110,7 @@ const AddNew = () => {
                             <input 
                             type="text"
                             placeholder=''
-                            name=""
+                            name="" ref={clientEmail}
                             onChange={(e) =>handlerChange(e.target.value)} 
                             />
                         </div>
@@ -100,7 +120,7 @@ const AddNew = () => {
                         <input 
                             type="text"
                             placeholder=''
-                            name=""
+                            name="" ref={clientStreet}
                             onChange={(e) =>handlerChange(e.target.value)} 
                             />
                         </div>
@@ -111,7 +131,7 @@ const AddNew = () => {
                             <input 
                             type="text"
                             placeholder=''
-                            name=""
+                            name="" ref={clientCity}
                             onChange={(e) =>handlerChange(e.target.value)} 
                             />
                             </div>
@@ -121,7 +141,7 @@ const AddNew = () => {
                             <input 
                             type="text"
                             placeholder=''
-                            name=""
+                            name="" ref={clientPostalCode}
                             onChange={(e) =>handlerChange(e.target.value)} 
                             />
                             </div>
@@ -131,7 +151,7 @@ const AddNew = () => {
                             <input 
                             type="text"
                             placeholder=''
-                            name=""
+                            name="" ref={clientCountry}
                             onChange={(e) =>handlerChange(e.target.value)} 
                             />
                             </div>
@@ -143,7 +163,7 @@ const AddNew = () => {
                             <input 
                             type="text"
                             placeholder=''
-                            name=""
+                            name="" ref={createdAt}
                             onChange={(e) =>handlerChange(e.target.value)} 
                             />
                             </div>
@@ -153,7 +173,7 @@ const AddNew = () => {
                             <input 
                             type="text"
                             placeholder=''
-                            name=""
+                            name="" ref={description}
                             onChange={(e) =>handlerChange(e.target.value)} 
                             />
                             </div>
@@ -163,7 +183,7 @@ const AddNew = () => {
                                 <input 
                             type="text"
                             placeholder=''
-                            name=""
+                            name="" ref={description}
                             onChange={(e) =>handlerChange(e.target.value)} 
                             />
                             </div>

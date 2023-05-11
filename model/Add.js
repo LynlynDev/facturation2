@@ -62,7 +62,7 @@ const addSchema = new mongoose.Schema(
     type: String,
     require: true
 },
-   qty:{ 
+    quantity:{ 
     type: String,
     require: true
 }
